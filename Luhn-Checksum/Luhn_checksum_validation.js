@@ -1,7 +1,6 @@
-let msg = "Hello world.";
 
-const myFunciton = () => {
-	console.log("msg");
+const myFunction = (argument) => {
+	return argument;
 }
 
-myFunciton();
+module.exports = myFunction;
