@@ -1,13 +1,16 @@
 
 const handleDoubleDigits = (doubledDigit) => {
-	let toSum = doubledDigit*2;
+	doubledDigit = doubledDigit * 2
 	let remainder;
+	let sum;
 	if(doubledDigit >=10){
 		remainder = doubledDigit%10;
-		toSum = 1+remainder;
+		sum = 1+remainder;
+	}else{
+		sum = doubledDigit;
 	}
 
-	return toSum;
+	return sum;
 }
 
 
