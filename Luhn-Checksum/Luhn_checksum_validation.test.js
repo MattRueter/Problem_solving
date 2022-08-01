@@ -1,7 +1,8 @@
 const testObj = require('./Luhn_checksum_validation');
 
-const doubleDigits = testObj.doubleDigits;
+const checkSum = testObj.checkSum;
 const reverseInput = testObj.reverseInput;
+const doubleDigits = testObj.doubleDigits;
 
 
 // if an id# digit is doubled and is 10 or greater, 
@@ -53,3 +54,11 @@ test("reverseInput ignores gaps", () =>{
 test("reverseInput ignores gaps on larger inputs", () =>{
 	expect(reverseInput("hello mr rueter")).toBe("reteurrmolleh")
 });
+
+//Checksum starts the program and takes the orginal id number as input.
+test("checkSum takes '1234' returns as number - 16", () =>{
+	expect(checkSum('12340')).toBe(16)
+});
+test("checkSum takes '0202021' returns as number - 13", () =>{
+	expect(checkSum('0202021')).toBe(13)
+})

@@ -1,3 +1,27 @@
+const checkSum = (idNumber) =>{
+	let toNumber;
+	let sumDigits = 0;
+	idNumber = reverseInput(idNumber)
+	
+	let i = idNumber.length-1;
+	while(i>=0){
+		
+		if( i===0 || i%2 ===0){
+			//add digit without doubling
+			toNumber = +idNumber[i];
+			sumDigits += toNumber;
+			i--;
+		}else{
+			//double the digit
+			toNumber = +idNumber[i];
+			sumDigits += doubleDigits(toNumber);
+			i--;
+		}
+	}
+
+	return sumDigits
+}
+
 const reverseInput = (idNumber) => {
 	let idNumberReversed ="";
 	let i = idNumber.length-1;
@@ -37,6 +61,7 @@ const doubleDigits = (doubledDigit) => {
 
 
 module.exports = {
+	checkSum:checkSum,
 	reverseInput:reverseInput,
 	doubleDigits:doubleDigits
 };
