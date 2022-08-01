@@ -1,5 +1,20 @@
+const reverseInput = (idNumber) => {
+	let idNumberReversed ="";
+	let i = idNumber.length-1;
+	while(i>=0){
+		if(idNumber[i]=== " "){
+			i--;
+		}else{
+			idNumberReversed += idNumber[i];
+			i--;	
+		}
+		
+	}
 
-const handleDoubleDigits = (doubledDigit) => {
+	return idNumberReversed;
+}
+
+const doubleDigits = (doubledDigit) => {
 	doubledDigit = doubledDigit * 2
 	let remainder;
 	let sum;
@@ -15,4 +30,7 @@ const handleDoubleDigits = (doubledDigit) => {
 
 
 
-module.exports = handleDoubleDigits;
+module.exports = {
+	reverseInput:reverseInput,
+	doubleDigits:doubleDigits
+};
