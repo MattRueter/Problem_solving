@@ -1,6 +1,23 @@
 const CountBlanks = (text) =>{
 	let characterCount = text.length;
-	let i = text.length-1;
+	
+	const wordCount = () =>{
+		let textSize = text.length-1;
+		let words = [];
+		let currentWord ='';
+		let numberOfWords;
+
+		for(let i=0; i<=textSize; i++){
+			//eventually use regEx for any non-letter matching.
+			
+	
+			
+
+		}
+		numberOfWords = words.length;
+
+		return numberOfWords;
+	}
 	
 	
 	
@@ -8,7 +25,7 @@ const CountBlanks = (text) =>{
 	
 	
 	
-	return {characterCount};
+	return {characterCount, wordCount};
 }
 
 
