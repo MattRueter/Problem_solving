@@ -1,8 +1,15 @@
-const countBlanks = (text) =>{
+const CountBlanks = (text) =>{
 	let characterCount = text.length;
 	let i = text.length-1;
-	return characterCount;
+	
+	
+	
+	
+	
+	
+	
+	return {characterCount};
 }
 
 
-module.exports = {countBlanks:countBlanks};
+module.exports = CountBlanks;
