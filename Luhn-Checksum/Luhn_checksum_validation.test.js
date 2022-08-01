@@ -46,7 +46,6 @@ test("reverseInput reverses two character string", () =>{
 })
 test("reverseInput reverses longer string", () =>{
 	expect(reverseInput("abcdefghijklmnopqrstuvwxyz")).toBe("zyxwvutsrqponmlkjihgfedcba")
-
 });
 test("reverseInput ignores gaps", () =>{
 	expect(reverseInput("hello mr")).toBe("rmolleh")

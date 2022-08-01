@@ -12,6 +12,9 @@ const reverseInput = (idNumber) => {
 	}
 
 	return idNumberReversed;
+	//reverseInput('123456') returns '654321'
+	//need to reverse the input so it is 
+	//consistently doubling every other starting from the second from the right. regardless of length.
 }
 
 const doubleDigits = (doubledDigit) => {
@@ -26,6 +29,9 @@ const doubleDigits = (doubledDigit) => {
 	}
 
 	return sum;
+	//doubleDigits(4) 	returns '8'
+	//doubleDigitis(5) 	returns '1+0' or '1'
+	//doubleDigits(6)	returns '1+2' or '3'
 }
 
 
