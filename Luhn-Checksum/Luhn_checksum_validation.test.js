@@ -55,10 +55,11 @@ test("reverseInput ignores gaps on larger inputs", () =>{
 	expect(reverseInput("hello mr rueter")).toBe("reteurrmolleh")
 });
 
+
 //Checksum starts the program and takes the orginal id number as input.
-test("checkSum takes '1234' returns as number - 16", () =>{
-	expect(checkSum('12340')).toBe(16)
+test("checkSum returns valid if passed '1762483'", () =>{
+	expect(checkSum('176248','3')).toBe(true)
 });
-test("checkSum takes '0202021' returns as number - 13", () =>{
-	expect(checkSum('0202021')).toBe(13)
-})
+test("checkSum returns invalid if passed '1762473' ", () =>{
+	expect(checkSum('176247','3')).toBe(false)
+});

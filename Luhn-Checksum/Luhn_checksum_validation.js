@@ -1,6 +1,8 @@
-const checkSum = (idNumber) =>{
+const checkSum = (idNumber, checkDigit) =>{
 	let toNumber;
 	let sumDigits = 0;
+	let isValid =false;
+	idNumber +=checkDigit;
 	idNumber = reverseInput(idNumber)
 	
 	let i = idNumber.length-1;
@@ -18,8 +20,13 @@ const checkSum = (idNumber) =>{
 			i--;
 		}
 	}
+	if(sumDigits%10===0){
+		isValid = true;
+	}else{
+		isValid =false;
+	}
 
-	return sumDigits
+	return isValid;
 }
 
 const reverseInput = (idNumber) => {
