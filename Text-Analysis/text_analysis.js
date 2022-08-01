@@ -1,4 +1,4 @@
-const CountBlanks = (text) =>{
+const AnalyzeText = (text) =>{
 	let characterCount = text.length;
 	
 	const wordCount = () =>{
@@ -9,7 +9,7 @@ const CountBlanks = (text) =>{
 
 		for(let i=0; i<=textSize; i++){
 			//eventually use regEx for any non-letter matching.
-			
+
 	
 			
 
@@ -29,4 +29,4 @@ const CountBlanks = (text) =>{
 }
 
 
-module.exports = CountBlanks;
+module.exports = AnalyzeText;
