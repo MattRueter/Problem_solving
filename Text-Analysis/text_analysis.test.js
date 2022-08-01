@@ -22,6 +22,13 @@ test("AnalyzeText.wordCount ignores non-letters in middle of text.", () =>{
 test("AnalyzeText.wordCount ignores non-letters in middle and end of text.", () =>{
 	expect(AnalyzeText("Matt ! I have 3 dogs!").wordCount()).toBe(4)
 });
+test("AnalyzeText.wordCount works with longish gibberish filled stuff.", () =>{
+	expect(AnalyzeText("Hello. Once !!! when I was 43 years old. I ate texts!").wordCount()).toBe(10)
+});
+test("AnalyzeText.wordCount ignores non-letters in middle words but counts correctly.", () =>{
+	expect(AnalyzeText("Hey! f%$# you!").wordCount()).toBe(3);
+});
+
 
 //tells us about the longest word.
 test.skip("AnalyzeText returns longest word & its length.", () =>{

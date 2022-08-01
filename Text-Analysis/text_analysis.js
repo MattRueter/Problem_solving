@@ -7,15 +7,28 @@ const AnalyzeText = (text) =>{
 		let currentWord ='';
 		let numberOfWords;
 
-		for(let i=0; i<=textSize; i++){
-			//eventually use regEx for any non-letter matching.
+		let isLetter =/[a-zA-Z]/;
 
+		for(let i=0; i<=textSize; i++){
+			if(isLetter.test(text[i]) && text[i] !== textSize){
+				currentWord += text[i];
+			}else if(isLetter.test(text[i]) && text[i]===textSize){
+				currentWord += text[i];
+				words.push(currentWord);
+			}else if( text[i]===" " && currentWord !=='') {
+				words.push(currentWord);
+				currentWord ='';
+			}
 	
-			
+		
 
 		}
-		numberOfWords = words.length;
+		if(currentWord !==''){
+			words.push(currentWord);
+		}
 
+		numberOfWords = words.length;
+		console.log(words);
 		return numberOfWords;
 	}
 	
