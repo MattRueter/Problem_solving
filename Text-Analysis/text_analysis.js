@@ -12,17 +12,17 @@ const AnalyzeText = (text) =>{
 		let words = createWordOnlyArray();
 		let longest ='';
 		let length = 0;
+		let currentWord;
 		let msg;
 
 		for( let i=0; i<=words.length-1; i++ ){
-			counter = 0;
-			for( let c = 0; c<=words[i].length-1 ; c++ ){
-				counter++;
-				if(counter >= length){
-					length = counter;
-					longest = words[i];
-				}
+			currentWord = words[i];
+			
+			if(currentWord.length >= longest.length ){
+				longest = currentWord;
+				length = currentWord.length;
 			}
+
 		}
 		if(length === 1){
 			msg = `Longest word: '${longest}' - it has ${length} letter`
@@ -58,7 +58,7 @@ const AnalyzeText = (text) =>{
 				msg = `Shortest word: '${shortest}' - it has ${length} letters`;
 			}
 		}
-		
+
 		return msg;
 	}
 	
