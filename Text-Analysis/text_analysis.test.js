@@ -42,7 +42,6 @@ test("AnalyzeText.longestWord() ignores symbols.", () =>{
 	expect(AnalyzeText("a 357 !!!").longestWord()).toBe("Longest word: 'a' - it has 1 letter")
 });
 
-
 //tells us about the shortest word
 test("AnalyzeText.shortestWord() returns shortest word & length.", () =>{
 	expect(AnalyzeText("the five barbarians").shortestWord()).toBe("Shortest word: 'the' - it has 3 letters")
@@ -53,12 +52,17 @@ test("AnalyzeText.shortestWord() ignores digits.", () =>{
 test("AnalyzeText.shortestWord() ignores symbols.", () =>{
 	expect(AnalyzeText("the 5 barbarians !!").shortestWord()).toBe("Shortest word: 'the' - it has 3 letters")
 });
-test.skip("AnalyzeText.shortestWord() accepts argument to ignore a given word.", () =>{
-	expect(AnalyzeText("the five barbarians").shortestWord('the')).toBe("five")
+test("AnalyzeText.shortestWord() accepts argument to ignore words less than 4 characters in length.", () =>{
+	expect(AnalyzeText("the five barbarians").shortestWord(4)).toBe("Shortest word (4 characters or longer): 'five' - it has 4 letters")
 });
-test.skip("AnalyzeText.shortestWord() accepts argument to ignore 2+ words.", () =>{
-	expect(AnalyzeText("the five barbarians").shortestWord('the','five')).toBe("barbarians")
+test("AnalyzeText.shortestWord() accepts argument to ignore words less than 5 characters in length..", () =>{
+	expect(AnalyzeText("the five barbarians").shortestWord(5)).toBe("Shortest word (5 characters or longer): 'barbarians' - it has 10 letters")
 });
+test("AnalyzeText.shortestWord() accepts argument to ignore words less than 4 characters in length when target word precedes .", () =>{
+	expect(AnalyzeText("the barbarians five ").shortestWord(4)).toBe("Shortest word (4 characters or longer): 'five' - it has 4 letters")
+});
+
+
 
 //find the number of words of a given length
 test.skip("AnaylzeText.'howManyWords(8)' returns # of words 8 characters long.", () =>{

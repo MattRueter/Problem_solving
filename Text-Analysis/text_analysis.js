@@ -33,24 +33,28 @@ const AnalyzeText = (text) =>{
 		return msg;
 	}
 
-	const shortestWord = () =>{
-		//text = "the five barbarians"
-		// expect `Shortest word: 'the' - it has 3 letters`;
+	const shortestWord = (minLength=0) =>{
 		let words = createWordOnlyArray();
 		let shortest ='';
 		let length = 0;
 		let msg;
 	
 		for( let i=0; i<=words.length-1; i++ ){
-			if(words[i].length <= shortest.length || shortest.length===0){
+			if(words[i].length < minLength){
+		
+			}else if(words[i].length <= shortest.length || shortest.length === 0){
 				shortest = words[i];
 				length = words[i].length;
 			}
 		}
-		if(length === 1){
-			msg = `Shortest word: '${shortest}' - it has ${length} letter`;
+		if(minLength !=0){
+				msg = `Shortest word (${minLength} characters or longer): '${shortest}' - it has ${length} letters`;
 		}else{
-			msg = `Shortest word: '${shortest}' - it has ${length} letters`;
+			if(length === 1){
+				msg = `Shortest word: '${shortest}' - it has ${length} letter`;
+			}else{
+				msg = `Shortest word: '${shortest}' - it has ${length} letters`;
+			}
 		}
 		return msg;
 	}
