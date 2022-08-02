@@ -19,17 +19,21 @@ const AnalyzeText = (text) =>{
 				words.push(currentWord);
 				currentWord ='';
 			}
-	
-		
-
 		}
+
 		if(currentWord !==''){
 			words.push(currentWord);
 		}
 
 		numberOfWords = words.length;
-		console.log(words);
+		
 		return numberOfWords;
+	}
+
+	const longestWord = () =>{
+		let msg = `Longest word: 'longest' - it has 7 letters`
+
+		return msg;
 	}
 	
 	
@@ -38,7 +42,7 @@ const AnalyzeText = (text) =>{
 	
 	
 	
-	return {characterCount, wordCount};
+	return {characterCount, wordCount, longestWord};
 }
 
 
