@@ -28,7 +28,6 @@ test("AnalyzeText.wordCount ignores non-letters in middle words but counts corre
 	expect(AnalyzeText("Hey! f%$# you!").wordCount()).toBe(3);
 });
 
-
 //tells us about the longest word.
 test("AnalyzeText returns longest word & its length.", () =>{
 	expect(AnalyzeText("The longest word.").longestWord()).toBe("Longest word: 'longest' - it has 7 letters")
@@ -45,18 +44,26 @@ test("AnalyzeText.longestWord() ignores symbols.", () =>{
 
 
 //tells us about the shortest word
-test.skip("AnalyzeText.shortestWord() returns shortest word & length.", () =>{
-	expect(AnalyzeText("the five barbarians").shortestWord()).toBe("the")
+test("AnalyzeText.shortestWord() returns shortest word & length.", () =>{
+	expect(AnalyzeText("the five barbarians").shortestWord()).toBe("Shortest word: 'the' - it has 3 letters")
 });
-test.skip("AnalyzeText.shortestWord() ignores digits.", () =>{
-	expect(AnalyzeText("the 5 barbarians").shortestWord()).toBe("the")
+test("AnalyzeText.shortestWord() ignores digits.", () =>{
+	expect(AnalyzeText("the 5 barbarians").shortestWord()).toBe("Shortest word: 'the' - it has 3 letters")
 });
-test.skip("AnalyzeText.shortestWord() ignores symbols.", () =>{
-	expect(AnalyzeText("the 5 barbarians !!").shortestWord()).toBe("the")
+test("AnalyzeText.shortestWord() ignores symbols.", () =>{
+	expect(AnalyzeText("the 5 barbarians !!").shortestWord()).toBe("Shortest word: 'the' - it has 3 letters")
 });
 test.skip("AnalyzeText.shortestWord() accepts argument to ignore a given word.", () =>{
 	expect(AnalyzeText("the five barbarians").shortestWord('the')).toBe("five")
 });
 test.skip("AnalyzeText.shortestWord() accepts argument to ignore 2+ words.", () =>{
 	expect(AnalyzeText("the five barbarians").shortestWord('the','five')).toBe("barbarians")
+});
+
+//find the number of words of a given length
+test.skip("AnaylzeText.'howManyWords(8)' returns # of words 8 characters long.", () =>{
+	expect(AnalyzeText("This text has 3 four letter words and 2 six letter words.").howManyWords(4)).toBe(3);
+});
+test.skip("AnaylzeText.'howManyWords(8)' returns # of words 8 characters long.", () =>{
+	expect(AnalyzeText("This text has 3 four letter words and 2 six letter words.").howManyWords(6)).toBe(2);
 });

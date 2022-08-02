@@ -9,9 +9,9 @@ const AnalyzeText = (text) =>{
 
 	const longestWord = () =>{
 		//text = "The longest word."
+		let words = createWordOnlyArray();
 		let longest ='';
 		let length = 0;
-		let words = createWordOnlyArray();
 		let msg;
 
 		for( let i=0; i<=words.length-1; i++ ){
@@ -24,11 +24,33 @@ const AnalyzeText = (text) =>{
 				}
 			}
 		}
-
 		if(length === 1){
 			msg = `Longest word: '${longest}' - it has ${length} letter`
 		}else{
 			msg = `Longest word: '${longest}' - it has ${length} letters`
+		}
+
+		return msg;
+	}
+
+	const shortestWord = () =>{
+		//text = "the five barbarians"
+		// expect `Shortest word: 'the' - it has 3 letters`;
+		let words = createWordOnlyArray();
+		let shortest ='';
+		let length = 0;
+		let msg;
+	
+		for( let i=0; i<=words.length-1; i++ ){
+			if(words[i].length <= shortest.length || shortest.length===0){
+				shortest = words[i];
+				length = words[i].length;
+			}
+		}
+		if(length === 1){
+			msg = `Shortest word: '${shortest}' - it has ${length} letter`;
+		}else{
+			msg = `Shortest word: '${shortest}' - it has ${length} letters`;
 		}
 		return msg;
 	}
@@ -38,8 +60,7 @@ const AnalyzeText = (text) =>{
 	
 	
 	const createWordOnlyArray = () =>{
-		//this returns an array indexing each item of the text 
-		//ignoring symbols and digits.
+		 //("I am a text to analyze.") returns ['I', 'am', 'a', 'text', 'to', 'analyze']
 		let textSize = text.length-1;
 		let words = [];
 		let currentWord ='';
@@ -62,7 +83,7 @@ const AnalyzeText = (text) =>{
 		return words;
 	}
 	
-	return {characterCount, wordCount, longestWord};
+	return {characterCount, wordCount, longestWord, shortestWord};
 }
 
 
