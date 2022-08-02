@@ -39,10 +39,12 @@ const AnalyzeText = (text) =>{
 		let length = 0;
 		let msg;
 	
+
 		for( let i=0; i<=words.length-1; i++ ){
-			if(words[i].length < minLength){
-		
-			}else if(words[i].length <= shortest.length || shortest.length === 0){
+			if(shortest.length !==0 && words[i].length <= shortest.length && words[i].length >= minLength){
+				shortest = words[i];
+				length = words[i].length;
+			}else if(shortest.length ===0 && words[i].length >= minLength){
 				shortest = words[i];
 				length = words[i].length;
 			}
@@ -56,6 +58,7 @@ const AnalyzeText = (text) =>{
 				msg = `Shortest word: '${shortest}' - it has ${length} letters`;
 			}
 		}
+		
 		return msg;
 	}
 	

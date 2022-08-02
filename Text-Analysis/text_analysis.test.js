@@ -58,7 +58,7 @@ test("AnalyzeText.shortestWord() accepts argument to ignore words less than 4 ch
 test("AnalyzeText.shortestWord() accepts argument to ignore words less than 5 characters in length..", () =>{
 	expect(AnalyzeText("the five barbarians").shortestWord(5)).toBe("Shortest word (5 characters or longer): 'barbarians' - it has 10 letters")
 });
-test("AnalyzeText.shortestWord() accepts argument to ignore words less than 4 characters in length when target word precedes .", () =>{
+test("AnalyzeText.shortestWord() accepts argument to ignore words less than 4 characters when target word later in text. .", () =>{
 	expect(AnalyzeText("the barbarians five ").shortestWord(4)).toBe("Shortest word (4 characters or longer): 'five' - it has 4 letters")
 });
 
