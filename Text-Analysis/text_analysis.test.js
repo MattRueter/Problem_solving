@@ -31,15 +31,15 @@ test("AnalyzeText.wordCount ignores non-letters in middle words but counts corre
 
 //tells us about the longest word.
 test("AnalyzeText returns longest word & its length.", () =>{
-	expect(AnalyzeText("The longest word").longestWord()).toBe("Longest word: 'longest' - it has 7 letters")
+	expect(AnalyzeText("The longest word.").longestWord()).toBe("Longest word: 'longest' - it has 7 letters")
 });
-test.skip("AnalyzeText returns longest word & its length for one letter word.", () =>{
+test("AnalyzeText returns longest word & its length for one letter word.", () =>{
 	expect(AnalyzeText("a").longestWord()).toBe("Longest word: 'a' - it has 1 letter")
 });
-test.skip("AnalyzeText.longestWord() ignores digits.", () =>{
+test("AnalyzeText.longestWord() ignores digits.", () =>{
 	expect(AnalyzeText("a 357").longestWord()).toBe("Longest word: 'a' - it has 1 letter")
 });
-test.skip("AnalyzeText.longestWord() ignores symbols.", () =>{
+test("AnalyzeText.longestWord() ignores symbols.", () =>{
 	expect(AnalyzeText("a 357 !!!").longestWord()).toBe("Longest word: 'a' - it has 1 letter")
 });
 

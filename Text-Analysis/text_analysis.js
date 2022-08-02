@@ -2,11 +2,30 @@ const AnalyzeText = (text) =>{
 	let characterCount = text.length;
 	
 	const wordCount = () =>{
+		const numberOfWords = createWordOnlyArray().length;
+
+		return numberOfWords;
+	}
+
+	const longestWord = () =>{
+		//text = "The longest word."
+		let longest;
+		let length;
+		let msg = `Longest word: ${longest} - it has ${length} letters`
+
+		return msg;
+	}
+	
+	
+	
+	
+	
+	const createWordOnlyArray = () =>{
+		//this returns an array indexing each item of the text 
+		//ignoring symbols and digits.
 		let textSize = text.length-1;
 		let words = [];
 		let currentWord ='';
-		let numberOfWords;
-
 		let isLetter =/[a-zA-Z]/;
 
 		for(let i=0; i<=textSize; i++){
@@ -20,27 +39,11 @@ const AnalyzeText = (text) =>{
 				currentWord ='';
 			}
 		}
-
 		if(currentWord !==''){
 			words.push(currentWord);
 		}
-
-		numberOfWords = words.length;
-		
-		return numberOfWords;
+		return words;
 	}
-
-	const longestWord = () =>{
-		let msg = `Longest word: 'longest' - it has 7 letters`
-
-		return msg;
-	}
-	
-	
-	
-	
-	
-	
 	
 	return {characterCount, wordCount, longestWord};
 }
