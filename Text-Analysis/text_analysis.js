@@ -9,10 +9,27 @@ const AnalyzeText = (text) =>{
 
 	const longestWord = () =>{
 		//text = "The longest word."
-		let longest;
-		let length;
-		let msg = `Longest word: ${longest} - it has ${length} letters`
+		let longest ='';
+		let length = 0;
+		let words = createWordOnlyArray();
+		let msg;
 
+		for( let i=0; i<=words.length-1; i++ ){
+			counter = 0;
+			for( let c = 0; c<=words[i].length-1 ; c++ ){
+				counter++;
+				if(counter >= length){
+					length = counter;
+					longest = words[i];
+				}
+			}
+		}
+
+		if(length === 1){
+			msg = `Longest word: '${longest}' - it has ${length} letter`
+		}else{
+			msg = `Longest word: '${longest}' - it has ${length} letters`
+		}
 		return msg;
 	}
 	
