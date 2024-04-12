@@ -121,3 +121,5 @@ const requests = [
   { user: 9, title: "The Alchemist", author: "Paulo Coelho", genres: ["Fiction", "Philosophical"], price: 20 },
   { user: 10, title: "Brave New World", author: "Aldous Huxley", genres: ["Science Fiction", "Dystopian"], price: 24 }
 ];
+
+module.exports = requests
