@@ -14,6 +14,46 @@ The budget is prioritized in all cases. If genres are specified there might be c
 
 Pleasing all users (i.e. including at least one book from each) is the last of the priorities. That is if all genres have been included but not all users, swapping a book to please a user shouldn't exclude a given genre.
 
+## General approach
+1. Create some "constraint" variables:
+```js
+//constraint variables.
+let budget = budget;
+let genres = //get genres out of requests array (exlcude duplicates)
+let users = // get users out of requess array (exclude duplicates)
+```
+
+Choose book?
+
+Three options:
+1. reject
+2. ignore
+3. choose
+
+Questions:
+1. Does book price exceed budget?
+    * yes? => reject
+    * no? => continue
+
+2. Is book's genre on genre priority list?
+    * no? => ignore GO ON TO NEXT BOOK
+    * yes => is genre already represented?
+        * no? => ADD  and GO ON TO NEXT BOOK
+        * yes? => ignore GO ON TO NEXT BOOK 
+
+3. Is user already represented?
+    * yes? ignore
+    * no? ADD and GO ON TO NEXT BOOK
+
+
+GOTCHAS!
+
+1. A request array may have no books matching one of the genre priorities. 
+
+### or
+Another approach may be to filter only books with genre matchhing priorities. If money still left in budget move on to the rest of the books in the request array.
+
+
 ## Variations
 ### Easy
 Budget is the only constraint.

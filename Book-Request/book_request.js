@@ -4,6 +4,7 @@ function createPurchaseList (requests, budget, genres) {
   let purchaseList = [];
   let totalPrice = 0;
 
+  //this adds books to the purchase list in order until the budget is spent.
   for(let i = 0; i <= requests.length-1; i++){
     if(requests[i].price + totalPrice <= budget){
       purchaseList.push(requests[i]);
@@ -17,3 +18,4 @@ function createPurchaseList (requests, budget, genres) {
 
 
 module.exports = createPurchaseList;
+
