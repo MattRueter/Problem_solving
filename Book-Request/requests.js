@@ -1,18 +1,11 @@
 // allGenres is for reference when using genres to prioritize.
 const allGenres = [
   "Literature",
-  "Classic",
   "Science Fiction",
-  "Dystopian",
-  "Coming-of-age",
-  "Romance",
   "Fantasy",
-  "Adventure",
   "Young Adult",
-  "Magic",
   "Mystery",
-  "Thriller",
-  "Philosophical"
+  "Fiction"
 ];
 
 
@@ -121,5 +114,14 @@ const requests = [
   { user: 9, title: "The Alchemist", author: "Paulo Coelho", genres: "Fiction", price: 20 },
   { user: 10, title: "Brave New World", author: "Aldous Huxley", genres: "Science Fiction", price: 24 }
 ];
+const sampleRequests =[
+  { user: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", genres: "Literature", price: 20 },
+  { user: 1, title: "1984", author: "George Orwell", genres: "Science Fiction", price: 25 },
+  { user: 3, title: "1984", author: "George Orwell", genres: "Science Fiction", price: 25 },
+  { user: 1, title: "The Hobbit", author: "J.R.R. Tolkien", genres: "Fantasy", price: 21 },
+  { user: 8, title: "The Fault in Our Stars", author: "John Green", genres: "Young Adult", price: 22 },
 
-module.exports = requests
+]
+
+
+module.exports = {requests, sampleRequests, allGenres}

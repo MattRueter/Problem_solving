@@ -66,6 +66,3 @@ Budget and pleasing users are the only constraints.
 
 ### Extra challenge
 Original problem but instead of using 'requests' array start with the original 'userRequests' array.
-
-# !
-The unit tests have been written 

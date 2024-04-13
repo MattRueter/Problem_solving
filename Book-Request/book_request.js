@@ -1,21 +1,25 @@
-const requests = require("./requests");
+const {requests, sampleRequests} = require("./requests");
+const { prioritizeGenres, selectBooksByGenre } = require("./utils/genres");
 
 function createPurchaseList (requests, budget, genres) {
+  if(requests.length <= 0){return null}
   let purchaseList = [];
-  let totalPrice = 0;
+  
+  // First: get as many books as possible which belong to genres being prioritized. (genres)
+  const priority = prioritizeGenres(requests, genres);
+  
+  // Second: check 'priority' books are within budget. Get as many as possible and add them 
+  // to purchaseList.
+  purchaseList = selectBooksByGenre(priority, budget).map((book) => book);
+  
+ 
 
-  //this adds books to the purchase list in order until the budget is spent.
-  for(let i = 0; i <= requests.length-1; i++){
-    if(requests[i].price + totalPrice <= budget){
-      purchaseList.push(requests[i]);
-      totalPrice += requests[i].price;
-    }else{
-      break
-    }
-  }
+  //Next we need to add as many other requested books as budget allows. *consider optimizing for including from range of users?
+  //Iterate over the rest of the books in request array and if the book doesn't exceed budget add it otherwise reject it.
+  
+  //At this point the purchaseList will be complete.
   return purchaseList;
 }
-
 
 module.exports = createPurchaseList;
 
