@@ -1,68 +1,24 @@
 # Book Requests
-The problem:
-A local public library takes requests from users when making book purchases. Users can suggest as many books as they like however there is no guarantee the library will purhcase each of the books. 
-They have the following constraints.
+## The problem:
 
-1. Budget: Total purchase price can't exceed the budget.
-2. Genre Prioritization: If library has genre "goals", prioritize those genres. Otherwise genres don't matter.
-3. Pleasing Users: All else being equal the purchases should include at least one book requested by each user.
+When making quarterly purchases a local library will take into consideration requests from users. In making the final list of books to purhcase here is their workflow.
 
-Write a funnction which takes in a requests [object-array], budget [number] and optional genres [string-array]. The function returns an array of books to purchase  based on calculations made to the requests array and within the constraints.
+1. Make a list of books to purhcase that the library management feels would be useful.
+2. If the budget allows, include books previously requested by 'n' number of users.
 
-## Challenges
-The budget is prioritized in all cases. If genres are specified there might be cases where some books get left out of final purchase list if adding them exceeds the budget.
+---
 
-Pleasing all users (i.e. including at least one book from each) is the last of the priorities. That is if all genres have been included but not all users, swapping a book to please a user shouldn't exclude a given genre.
+3. Add user requests by authors being prioritized by library.
+4. Add user requests which belong to genres being prioritized by library.
+5. Add any remaining requests that budget allows.
+6. Any requested books not purchased get added to a previously requested DB to be used in step 2 above at a future date.
 
-## General approach
-1. Create some "constraint" variables:
-```js
-//constraint variables.
-let budget = budget;
-let genres = //get genres out of requests array (exlcude duplicates)
-let users = // get users out of requess array (exclude duplicates)
-```
-
-Choose book?
-
-Three options:
-1. reject
-2. ignore
-3. choose
-
-Questions:
-1. Does book price exceed budget?
-    * yes? => reject
-    * no? => continue
-
-2. Is book's genre on genre priority list?
-    * no? => ignore GO ON TO NEXT BOOK
-    * yes => is genre already represented?
-        * no? => ADD  and GO ON TO NEXT BOOK
-        * yes? => ignore GO ON TO NEXT BOOK 
-
-3. Is user already represented?
-    * yes? ignore
-    * no? ADD and GO ON TO NEXT BOOK
+Write a program which deals with 3-6. The idea is that elsewhere in their system the library has already generated a partial list consisting of points 1-2. Our program is going to take in an array of objects representing user requests and purchase as MANY books as budget allows at each "prioritization step". 
 
 
-GOTCHAS!
+## Constraints and Gotchas:
+1. Select as many books as possible at each "prioritization step". This means sorting from cheapest to most expensive (and that more expensive books are less likely to be purchased).
 
-1. A request array may have no books matching one of the genre priorities. 
+2. At each step we'll need to handle books which have more than 'n'number of requests and prioritize those (this would be an exception to the 'as many books as possible' rule).
 
-### or
-Another approach may be to filter only books with genre matchhing priorities. If money still left in budget move on to the rest of the books in the request array.
-
-
-## Variations
-### Easy
-Budget is the only constraint.
-
-### Medium
-Budget and Genre prioritization are the only constraints.
-
-### Medium alternative
-Budget and pleasing users are the only constraints.
-
-### Extra challenge
-Original problem but instead of using 'requests' array start with the original 'userRequests' array.
+3. Books already in collection are taken out of request array before making it to this program.
