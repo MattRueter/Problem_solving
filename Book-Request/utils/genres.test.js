@@ -68,6 +68,5 @@ test("The order of duplicates shouldn't be a problem. There should still be no d
     { user: 3, title: "1984", author: "George Orwell", genres: "Science Fiction", price: 25 },
   ]
   const result = handleDuplicates(req);
-  console.log(result)
   expect(selectBooksByGenre(result, 1000)).toStrictEqual(result)
 });
