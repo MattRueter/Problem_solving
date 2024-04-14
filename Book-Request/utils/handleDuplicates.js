@@ -1,6 +1,3 @@
-//Write a function which takes an array of book request objects and gets rid of duplicate books. 
-//It should return an array without duplicates.
-
 function handleDuplicates (requests) {
   const seenTitles = new Set();
   const uniqueRequests = [];

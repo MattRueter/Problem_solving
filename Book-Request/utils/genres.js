@@ -1,7 +1,6 @@
 const { requests, sampleRequests } = require("../requests");
+const handleDuplicates = require("./handleDuplicates");
 
-//write a function which takes requests array and genre array as argument.
-// it returns an array of items with 1+ matching genre and sorts them by price.
 function prioritizeGenres (requests, genres) {
   const filteredBooks = requests.filter((item) =>{
     if(genres.includes(item.genres)){
@@ -15,10 +14,12 @@ function prioritizeGenres (requests, genres) {
 
 
 //Write a function which two parameters (array of books, budget:number) and returns an array of as many books fit within budget.
+
 function selectBooksByGenre (filteredRequests, budget) {
   let booksToPurchase = [];
   let purchaseTotal = 0;
-
+  
+ 
   const total = filteredRequests.reduce((a,c) =>{
     return a + c.price
   },0);
