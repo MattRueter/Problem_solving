@@ -2,13 +2,17 @@
 //It should return an array without duplicates.
 
 function handleDuplicates (requests) {
-  for(let i=0; i<requests.length-1; i++){
-    if(requests[i].title === requests[i+1].title ){
-      requests.splice(i,1, null)
+  const seenTitles = new Set();
+  const uniqueRequests = [];
+
+  for(let i = requests.length-1; i>=0; i--){
+    const request = requests[i];
+    if(!seenTitles.has(request.title)){
+      seenTitles.add(request.title);
+      uniqueRequests.unshift(request);
     }
   }
-  requests = requests.filter((item) => item != null);
-  return requests
+  return uniqueRequests;
 }
 
 module.exports = handleDuplicates
